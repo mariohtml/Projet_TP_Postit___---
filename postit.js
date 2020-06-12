@@ -75,7 +75,7 @@ class Postit {
         monElem.style.backgroundColor = this.couleurFond;
 		monElem.style.resize = 'both';
 		monElem.style.overflow = 'auto';
-		//monElem.style.cursor = 'grab';
+		monElem.style.cursor = 'zoom-in';
 		monElem.innerHTML = this.texte;
         document.getElementById('postit').appendChild(monElem);
 
