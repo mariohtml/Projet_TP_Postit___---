@@ -36,11 +36,23 @@ class Postit {
 
     AffichPostit() 
 		{
+						var supprimer = document.getElementsByClassName("supprimer");
+						var i;
+						for (i = 0; i < supprimer.length; i++) {
+						supprimer[i].onclick = function() {
+						var div = this.parentElement;
+						div.style.display = "none";
+						}
+						}
+			
+			
+		//////////////////////////////////////////////////////////////////////////////////////////////	
+			
 					  var suppresion = document.getElementsByTagName("div");
 					  var i;
-					  for (i = 1; i < suppresion.length; i++) {
+					  for (i = 0; i < suppresion.length; i++) {
 					  var span = document.createElement("SPAN");
-					  var txt = document.createTextNode("\u00D7:Supp");
+					  var txt = document.createTextNode("\u00D7");
 					  span.className = "supprimer";
 					  span.appendChild(txt);
 					  suppresion[i].appendChild(span);}
@@ -56,6 +68,7 @@ class Postit {
         monElem.style.left = this.x + 'px';
         monElem.style.top = this.y + 'px';
         monElem.style.backgroundColor = this.couleurFond;
+		monElem.style.overflow = 'both';
 		monElem.innerHTML = this.texte;
         document.getElementById('postit').appendChild(monElem);
 
@@ -64,7 +77,12 @@ class Postit {
 	/*deplacerPostit(newX, newY ){
 		this.x = newX;
 		this.y = newY;
-		}*/
+		}
+		
+		function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+		*/
 
 }
 
@@ -77,12 +95,12 @@ class Postit {
 
 //#########################################################################
 																		//#
-						let elem = document.getElementById('postit');   //#
+						/*let elem = document.getElementById('postit');   //#
 						elem.onclick = Postit1;							//#
 						function Postit1() {							//#
 							alert("Tu as clique sur le Postit");		//#
 						}												//#
-																		//#
+						*/												//#
 																		//#
 																		//#
 																		//#
@@ -105,6 +123,17 @@ class Postit {
 																		//#
 																		//#																		
 //#########################################################################
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 
 let monPost_it = new Postit('postit1', 10, 100, 200, 200, 'red', 'black','Salut test POSTIT 1 !!!', );
