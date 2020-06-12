@@ -13,7 +13,7 @@ class Postit {
 	changerTaille;
 	
 
-    constructor(x, y, largeur, hauteur, couleurFond, couleurTexte, texte,deplacerPostit) {
+    constructor(x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
         this.x = x;
         this.y = y;
         this.largeur = largeur;
@@ -21,7 +21,7 @@ class Postit {
         this.couleurFond = couleurFond;
         this.couleurTexte = couleurTexte;
 		this.texte = texte;
-		this.deplacerPostit = deplacerPostit;
+		//this.deplacerPostit = deplacerPostit;
 		/*
 		this.id = id;
 		this.actionsPostit = actionsPostit;
@@ -57,17 +57,17 @@ class Postit {
 
     }
 	
-	deplacerPostit(newX, newY ){
+	/*deplacerPostit(newX, newY ){
 		this.x = newX;
 		this.y = newY;
-		}
+		}*/
 
 }
 
 
-deplacerPostit(newX, newY )
+/*deplacerPostit(newX, newY )
 		this.x = newX
-		this.y = newY
+		this.y = newY*/
 		
 
 
@@ -106,7 +106,7 @@ deplacerPostit(newX, newY )
 let monPost_it = new Postit(10, 100, 200, 200, 'red', 'black','Salut test POSTIT 1 !!!');
 
 monPost_it.AffichPostit();
-monPost_it.deplacerPostit(700,500);
+//monPost_it.deplacerPostit(700,500);
 monPost_it.AffichPostit();
 
 let monPost_it2 = new Postit(50, 200, 200, 200, 'yellow', 'black','Salut test POSTIT 2 !!!');
