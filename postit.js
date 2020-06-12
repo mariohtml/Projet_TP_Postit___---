@@ -1,4 +1,5 @@
 class Postit {
+	id;
     x;
     y;
     largeur;
@@ -13,8 +14,9 @@ class Postit {
 	changerTaille;
 	
 
-    constructor(x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
-        this.x = x;
+    constructor(id, x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
+        this.id = id;
+		this.x = x;
         this.y = y;
         this.largeur = largeur;
         this.hauteur = hauteur;
@@ -42,8 +44,10 @@ class Postit {
 					  span.className = "supprimer";
 					  span.appendChild(txt);
 					  suppresion[i].appendChild(span);}
-		  
+					  
+		//let monElem = document.getElementById(this.id);  
         let monElem = document.createElement('div');
+		monElem.id = this.id;
         monElem.style.width = this.largeur + 'px';
         monElem.style.height = this.hauteur + 'px';
         monElem.style.position = 'fixed';
@@ -103,16 +107,16 @@ class Postit {
 //#########################################################################
 
 
-let monPost_it = new Postit(10, 100, 200, 200, 'red', 'black','Salut test POSTIT 1 !!!');
+let monPost_it = new Postit('postit1', 10, 100, 200, 200, 'red', 'black','Salut test POSTIT 1 !!!', );
 
 monPost_it.AffichPostit();
 //monPost_it.deplacerPostit(700,500);
-monPost_it.AffichPostit();
+//monPost_it.AffichPostit();
 
-let monPost_it2 = new Postit(50, 200, 200, 200, 'yellow', 'black','Salut test POSTIT 2 !!!');
+let monPost_it2 = new Postit('postit2', 50, 200, 200, 200, 'yellow', 'black','Salut test POSTIT 2 !!!', );
 monPost_it2.AffichPostit();
 
-let monPost_it3 = new Postit(300, 200, 200, 200,'green', 'black','Salut test POSTIT 3 !!!');
+let monPost_it3 = new Postit('postit3', 300, 200, 200, 200,'green', 'black','Salut test POSTIT 3 !!!', );
 monPost_it3.AffichPostit();
 
 /*let monpostit = new Postit(10, 100, 200, 200, 'red', 'black');
