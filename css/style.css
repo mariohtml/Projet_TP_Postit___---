@@ -1,0 +1,36 @@
+
+.container{
+    height: 100vh;
+    display: flex;
+    background-image: url("../img/b.jpg");
+    background-size: cover;
+}
+
+.menu{
+    width: 20%;
+    background-image: url("../img/s.jpg");
+    background-size: cover;
+    border-right: 7px solid grey;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#postit1{
+    height: 300px;
+    width: 300px;
+    border: 1px solid white;
+}
+
+#postit2{
+    height: 300px;
+    width: 300px;
+    border: 1px solid white;
+}
+
+#postit3{
+    height: 300px;
+    width: 300px;
+    border: 1px solid white;
+}
