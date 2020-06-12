@@ -6,9 +6,10 @@ class Postit {
     hauteur;
     couleurFond;
     couleurTexte;
-
-	deplacerPostit;
 	texte;
+	
+	deplacerPostit;
+	
 	actionsPostit;
 	modifierTexte;
 	changerTaille;
@@ -68,7 +69,9 @@ class Postit {
         monElem.style.left = this.x + 'px';
         monElem.style.top = this.y + 'px';
         monElem.style.backgroundColor = this.couleurFond;
-		monElem.style.overflow = 'both';
+		monElem.style.resize = 'both';
+		monElem.style.overflow = 'auto';
+		
 		monElem.innerHTML = this.texte;
         document.getElementById('postit').appendChild(monElem);
 
@@ -87,9 +90,17 @@ class Postit {
 }
 
 
-/*deplacerPostit(newX, newY )
-		this.x = newX
-		this.y = newY*/
+/*deplacerPostit(newx, newy )
+		this.x = newx
+		this.y = newy
+		
+		
+		$( function() {
+    $( "#resizable" ).resizable();
+  } );
+		
+		
+		*/
 		
 
 
