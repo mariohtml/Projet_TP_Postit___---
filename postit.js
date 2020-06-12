@@ -36,7 +36,7 @@ class Postit {
     }
 
     AffichPostit() 
-		{
+		{				
 						var supprimer = document.getElementsByClassName("supprimer");
 						var i;
 						for (i = 0; i < supprimer.length; i++) {
@@ -44,19 +44,23 @@ class Postit {
 						var div = this.parentElement;
 						div.style.display = "none";
 						}
+						
 						}
-			
+						 
 			
 		//////////////////////////////////////////////////////////////////////////////////////////////	
 			
 					  var suppresion = document.getElementsByTagName("div");
 					  var i;
+					  
 					  for (i = 0; i < suppresion.length; i++) {
+					  
 					  var span = document.createElement("SPAN");
 					  var txt = document.createTextNode("\u00D7");
 					  span.className = "supprimer";
 					  span.appendChild(txt);
 					  suppresion[i].appendChild(span);}
+					  
 					  
 		//let monElem = document.getElementById(this.id);  
         let monElem = document.createElement('div');
@@ -71,7 +75,7 @@ class Postit {
         monElem.style.backgroundColor = this.couleurFond;
 		monElem.style.resize = 'both';
 		monElem.style.overflow = 'auto';
-		
+		//monElem.style.cursor = 'grab';
 		monElem.innerHTML = this.texte;
         document.getElementById('postit').appendChild(monElem);
 
