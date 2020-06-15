@@ -4,10 +4,10 @@ class Postit {
     y;
     largeur;
 	hauteur;
+	couleurFond;
 	monTitre;
+	couleurTexte;
 	changerTaille;
-    couleurFond;
-    couleurTexte;
 	texte;
 	
 	//colorText;
@@ -20,6 +20,7 @@ class Postit {
 	changerTaille;*/
 	
 //function
+//constructor(id, x, y, largeur, hauteur, monTitre, changerTaille, couleurFond, couleurTexte, texte)
     constructor(id, x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
         this.id = id;
 		this.x = x;
@@ -27,12 +28,14 @@ class Postit {
         this.largeur = largeur;
         this.hauteur = hauteur;
         this.couleurFond = couleurFond;
-        this.couleurTexte = couleurTexte;
+		this.couleurTexte = couleurTexte;
+		//this.changerTaille = changerTaille;
+		//this.monTitre = monTitre;
 		this.texte = texte;	
 		
 		//this.modifierTexte = modifierTexte;
-		//this.monTitre = monTitre;
-		//this.changerTaille = changerTaille;
+		
+		
 		//this.colorText = colorText;
 				
 		//this.deplacerPostit = deplacerPostit;
@@ -54,7 +57,7 @@ class Postit {
 						}
 						 
 			
-		//////////////////////////////////////////////////////////////////////////////////////////////	
+//////////////////////////////////////////////////////////////////////////////////////////////	
 			
 					  var suppresion = document.getElementsByTagName("div");
 					  var i;
@@ -93,7 +96,7 @@ AffichPostit()
 		//monElem.style.cursor = 'zoom-in';
 		//monElem.style.draggable = "true";
 		monElem.innerHTML = this.texte;
-		
+		//monElem.innerHTML = this.monTitre;
         document.getElementById('postit').appendChild(monElem);
 		//monElem.innerHTML = ' ';
 					
@@ -114,13 +117,13 @@ AffichPostit()
 		}
 		
 
-		monTitle(){
-		let monElem1 = document.createElement('h3');
-					monElem1.style.color = this.couleurTexte;
-					monElem1.style.fontsize = this.changerTaille + 'px';
-					monElem1.innerHTML = this.monTitre;
-					monElem1.appendChild(monElem1);
-		}
+		/*monTitle(){
+		let monElem = document.createElement('h3');
+					monElem.style.color = this.couleurTexte;
+					monElem.style.fontsize = this.changerTaille + 'px';
+					monElem.innerHTML = this.monTitre;
+					monElem.appendChild(monElem);
+		}*/
 
 }
 		
@@ -188,9 +191,6 @@ AffichPostit()
 							'translate(' + x + 'px, ' + y + 'px)'
 					  })
 */
-
-
-
 ///////////////////////////////////////////////////////////////////////////
 
 
@@ -198,7 +198,7 @@ AffichPostit()
 
 
 //let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'Exo', 10, 'red', 'black', 'Salut test POSTIT 1 !!!');
-let monPost_it = new Postit('postit1', 230, 20, 200, 200,'red', 'black', 'Salut test POSTIT 1 !!!');
+let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
 
 monPost_it.AffichPostit();
 monPost_it.deplacerPostit(450,250);
