@@ -17,7 +17,7 @@ class Postit {
 	modifierTexte;
 	changerTaille;
 	
-
+//function
     constructor(id, x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
         this.id = id;
 		this.x = x;
