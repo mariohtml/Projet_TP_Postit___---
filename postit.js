@@ -3,11 +3,13 @@ class Postit {
     x;
     y;
     largeur;
-    hauteur;
+	hauteur;
+	monTitre;
+	changerTaille;
     couleurFond;
     couleurTexte;
 	texte;
-	monTitre;
+	
 	//colorText;
 	
 	
@@ -26,22 +28,17 @@ class Postit {
         this.hauteur = hauteur;
         this.couleurFond = couleurFond;
         this.couleurTexte = couleurTexte;
-		this.texte = texte;
+		this.texte = texte;	
 		
-		
+		//this.modifierTexte = modifierTexte;
 		//this.monTitre = monTitre;
+		//this.changerTaille = changerTaille;
 		//this.colorText = colorText;
-		
-		
+				
 		//this.deplacerPostit = deplacerPostit;
-		/*
-		
-		this.actionsPostit = actionsPostit;
-		this.id = id;this.actionsPostit = actionsPostit;
-		this.modifierTexte = modifierTexte;
-		this.changerTaille = changerTaille;
-		
-		*/
+				
+		//this.actionsPostit = actionsPostit;
+		//this.id = id;this.actionsPostit = actionsPostit;		
     }
 
 //    AffichPostit() 
@@ -99,7 +96,7 @@ AffichPostit()
 		
         document.getElementById('postit').appendChild(monElem);
 		//monElem.innerHTML = ' ';
-		
+					
     }
 	
 	/*Titre()
@@ -116,7 +113,14 @@ AffichPostit()
 		this.y = newy
 		}
 		
-		
+
+		monTitle(){
+		let monElem1 = document.createElement('h3');
+					monElem1.style.color = this.couleurTexte;
+					monElem1.style.fontsize = this.changerTaille + 'px';
+					monElem1.innerHTML = this.monTitre;
+					monElem1.appendChild(monElem1);
+		}
 
 }
 		
@@ -193,8 +197,8 @@ AffichPostit()
 
 
 
-
-let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
+//let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'Exo', 10, 'red', 'black', 'Salut test POSTIT 1 !!!');
+let monPost_it = new Postit('postit1', 230, 20, 200, 200,'red', 'black', 'Salut test POSTIT 1 !!!');
 
 monPost_it.AffichPostit();
 monPost_it.deplacerPostit(450,250);
