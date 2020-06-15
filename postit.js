@@ -160,37 +160,12 @@ AffichPostit()
 																		//#																		
 //#########################################################################
 ///////////////////////////////////////////////////////////////////////////
+//Deplasable drop and drag
 
-					/*var element = document.getElementById('grid-snap')
-					var x = 0; var y = 0
+//---------------------------------------------------------------------
+			
 
-					interact(element)
-					  .draggable({
-						modifiers: [
-						  interact.modifiers.snap({
-							targets: [
-							  interact.createSnapGrid({ x: 300, y: 300 })
-							],
-							range: Infinity,
-							relativePoints: [ { x: 0, y: 0 } ]
-						  }),
-						  interact.modifiers.restrict({
-							restriction: element.parentNode,
-							elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
-							endOnly: true
-						  })
-						],
-						inertia: true
-					  })
-					  .on('dragmove', function (event) {
-						x += event.dx
-						y += event.dy
 
-						event.target.style.webkitTransform =
-						event.target.style.transform =
-							'translate(' + x + 'px, ' + y + 'px)'
-					  })
-*/
 ///////////////////////////////////////////////////////////////////////////
 
 
@@ -213,8 +188,8 @@ monPost_it3.AffichPostit();
 
 let monPost_it4 = new Postit('postit4', 890, 20, 200, 200,'white', 'black','Salut test POSTIT 4 !!!' );
 monPost_it4.AffichPostit();
-monPost_it4.deplacerPostit(500,700);
-monPost_it4.AffichPostit();
+//monPost_it4.deplacerPostit(500,600);
+//monPost_it4.AffichPostit();
 
 
 
