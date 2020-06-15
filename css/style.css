@@ -85,12 +85,15 @@
 .deplacer 
 {
 
-	overflow: hidden;
+	/*overflow: hidden;*/
+	
 	height: 400px;
   }
   
   .draggable 
   {
+	/*resize: both;*/
+	overflow: auto;
 	width:70px;
 	height:70px;
 	/*background-color:#666;
