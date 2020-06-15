@@ -211,6 +211,11 @@ monpostit.deplace(500,500);
 */
 
 
+////////////////////////////////////////////////////////////////////////
+
+//Deplacer une div dans une div avec les boutons
+
+
 
 var chrono;
 function stopChrono()
@@ -230,21 +235,17 @@ function droite()
         chrono = setTimeout("droite()",1000);
 }
 
+///////////////////////////////////////////////////////////////////////
 
-/*
-//relever la position de la souris
-var xMousePos = 0;
-var yMousePos = 0;
-document.onmousemove = function(e)
-{
-  xMousePos = e.clientX + window.pageXOffset;
-  yMousePos = e.clientY + window.pageYOffset;
-};*/
+
+
 
 
 
 
 //////////////////////////////////////////////////////////////////////////////////
+
+				//relever la position de la souris
 
 				var monDiv = document.getElementById("postit");
 
