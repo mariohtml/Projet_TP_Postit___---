@@ -7,7 +7,7 @@ class Postit {
     couleurFond;
     couleurTexte;
 	texte;
-	monTitle;
+	monTitre;
 	//colorText;
 	
 	
@@ -27,7 +27,9 @@ class Postit {
         this.couleurFond = couleurFond;
         this.couleurTexte = couleurTexte;
 		this.texte = texte;
-		//this.monTitle = monTitle;
+		
+		
+		//this.monTitre = monTitre;
 		//this.colorText = colorText;
 		
 		
@@ -92,24 +94,28 @@ AffichPostit()
 		monElem.style.resize = 'both';
 		monElem.style.overflow = 'auto';
 		//monElem.style.cursor = 'zoom-in';
-		monElem.style.draggable = "true";
+		//monElem.style.draggable = "true";
 		monElem.innerHTML = this.texte;
+		
         document.getElementById('postit').appendChild(monElem);
 		//monElem.innerHTML = ' ';
-		//monElem.deplacerPostit;
+		
     }
 	
-	 //var monElem1 = document.createElement('p');
-	//monElem1.style.color = this.couleurTexte;
-	//monElem1.style.fontsize = this.changerTaille + 'px';
-	//monElem1.innerHTML = this.monTitle;
-	//monElem1.appendChild(monElem1);
-	
+	/*Titre()
+	{
+	 let monElem = document.createElement('h3');
+	 monElem.style.color = this.couleurTexte;
+	 monElem.style.fontsize = this.changerTaille + 'px';
+	 monElem.innerHTML = this.monTitre;
+	 monElem.appendChild(monElem);
+	}*/
 		deplacerPostit(newx, newy)
 		{
 		this.x = newx
 		this.y = newy
 		}
+		
 		
 
 }
@@ -188,26 +194,26 @@ AffichPostit()
 
 
 
-let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'red', 'black','Salut test POSTIT 1 !!!');
+let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
 
 monPost_it.AffichPostit();
 monPost_it.deplacerPostit(450,250);
 monPost_it.AffichPostit();
 
-let monPost_it2 = new Postit('postit2', 450, 20, 200, 200, 'yellow', 'black','Salut test POSTIT 2 !!!' );
+let monPost_it2 = new Postit('postit2', 450, 20, 200, 200, 'yellow', 'black', 'Salut test POSTIT 2 !!!' );
 monPost_it2.AffichPostit();
 
 let monPost_it3 = new Postit('postit3', 670, 20, 200, 200,'green', 'black','Salut test POSTIT 3 !!!' );
 monPost_it3.AffichPostit();
 //monPost_it.deplacerPostit(700,500);
 
+let monPost_it4 = new Postit('postit4', 890, 20, 200, 200,'white', 'black','Salut test POSTIT 4 !!!' );
+monPost_it4.AffichPostit();
+monPost_it4.deplacerPostit(500,700);
+monPost_it4.AffichPostit();
 
 
 
-/*let monpostit = new Postit(10, 100, 200, 200, 'red', 'black');
-monpostit.affiche();
-monpostit.deplace(500,500);
-*/
 
 
 
@@ -269,7 +275,7 @@ function droite()
 				{
 				  var x = xMousePos - monDiv.offsetLeft;
 				  var y = yMousePos - monDiv.offsetTop;
-					monDiv.style.cursor='wait';
+					monDiv.style.cursor='default';
 				  if(x > monDiv.offsetWidth - 4)
 					monDiv.style.cursor='e-resize';
 				  if(y > monDiv.offsetHeight - 4)
