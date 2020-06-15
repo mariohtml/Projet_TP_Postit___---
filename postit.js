@@ -11,11 +11,11 @@ class Postit {
 	//colorText;
 	
 	
-	deplacerPostit;
 	
-	actionsPostit;
+	
+	/*actionsPostit;
 	modifierTexte;
-	changerTaille;
+	changerTaille;*/
 	
 //function
     constructor(id, x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
@@ -27,12 +27,11 @@ class Postit {
         this.couleurFond = couleurFond;
         this.couleurTexte = couleurTexte;
 		this.texte = texte;
-		this.deplacerPostit = deplacerPostit;
 		//this.monTitle = monTitle;
 		//this.colorText = colorText;
 		
 		
-		
+		//this.deplacerPostit = deplacerPostit;
 		/*
 		
 		this.actionsPostit = actionsPostit;
@@ -43,9 +42,8 @@ class Postit {
 		*/
     }
 
-    AffichPostit() 
-		{
-/////////////////////////////////////////////////////////////////////////////////////////////				
+//    AffichPostit() 
+//		{				
 						/*var supprimer = document.getElementsByClassName("supprimer");
 						var i;
 						for (i = 0; i < supprimer.length; i++) {
@@ -57,7 +55,7 @@ class Postit {
 						}
 						 
 			
-//////////////////////////////////////////////////////////////////////////////////////////////	
+		//////////////////////////////////////////////////////////////////////////////////////////////	
 			
 					  var suppresion = document.getElementsByTagName("div");
 					  var i;
@@ -70,19 +68,22 @@ class Postit {
 					  span.appendChild(txt);
 					  suppresion[i].appendChild(span);}
 					  */
-////////////////////////////////////////////////////////////////////////////////////////////////					  
+					  
 					  
 		//let monElem = document.getElementById(this.id)
 		//if(monElem === null)
 		//{
 		//	monElem = document.createElement('div');
 		//	monElem.id = this.id;
-		//}		
+		//}	
+		
+AffichPostit() 
+{
         let monElem = document.createElement('div');
 		monElem.id = this.id;
         monElem.style.width = this.largeur + 'px';
         monElem.style.height = this.hauteur + 'px';
-        //monElem.style.position = 'fixed';
+        monElem.style.position = 'fixed';
         //monElem.style.display = 'flex';
         monElem.style.margin = '10px';
         monElem.style.left = this.x + 'px';
@@ -92,13 +93,10 @@ class Postit {
 		monElem.style.overflow = 'auto';
 		//monElem.style.cursor = 'zoom-in';
 		monElem.style.draggable = "true";
-
-		monElem.deplacerPostit;
-
 		monElem.innerHTML = this.texte;
         document.getElementById('postit').appendChild(monElem);
 		//monElem.innerHTML = ' ';
-		
+		//monElem.deplacerPostit;
     }
 	
 	 //var monElem1 = document.createElement('p');
@@ -107,27 +105,20 @@ class Postit {
 	//monElem1.innerHTML = this.monTitle;
 	//monElem1.appendChild(monElem1);
 	
-		/*deplacerPostit(newX, newY)
+		deplacerPostit(newx, newy)
 		{
-		this.x = newx;
-		this.y = newy;
-		}*/
+		this.x = newx
+		this.y = newy
+		}
+		
+
 }
-
-
-deplacerPostit(newx, newy)
-{
-		this.x = newx;
-		this.y = newy;
-}		
 		
-		
-
 
 
 //#########################################################################
 																		//#
-						/*let elem = document.getElementById('postit'); //#
+						/*let elem = document.getElementById('postit');   //#
 						elem.onclick = Postit1;							//#
 						function Postit1() {							//#
 							alert("Tu as clique sur le Postit");		//#
@@ -155,9 +146,8 @@ deplacerPostit(newx, newy)
 																		//#
 																		//#																		
 //#########################################################################
-
-
 ///////////////////////////////////////////////////////////////////////////
+
 					/*var element = document.getElementById('grid-snap')
 					var x = 0; var y = 0
 
@@ -188,6 +178,9 @@ deplacerPostit(newx, newy)
 							'translate(' + x + 'px, ' + y + 'px)'
 					  })
 */
+
+
+
 ///////////////////////////////////////////////////////////////////////////
 
 
@@ -195,26 +188,35 @@ deplacerPostit(newx, newy)
 
 
 
-let monPost_it = new Postit('postit1', 10, 100, 200, 200, 'red', 'black','Salut test POSTIT 1 !!!');
+let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'red', 'black','Salut test POSTIT 1 !!!');
 
 monPost_it.AffichPostit();
-//monPost_it.deplacerPostit(500,500);
-//monPost_it.AffichPostit();
+monPost_it.deplacerPostit(450,250);
+monPost_it.AffichPostit();
 
-let monPost_it2 = new Postit('postit2', 50, 200, 200, 200, 'yellow', 'black','Salut test POSTIT 2 !!!' );
+let monPost_it2 = new Postit('postit2', 450, 20, 200, 200, 'yellow', 'black','Salut test POSTIT 2 !!!' );
 monPost_it2.AffichPostit();
 
-let monPost_it3 = new Postit('postit3', 300, 200, 200, 200,'green', 'black','Salut test POSTIT 3 !!!' );
+let monPost_it3 = new Postit('postit3', 670, 20, 200, 200,'green', 'black','Salut test POSTIT 3 !!!' );
 monPost_it3.AffichPostit();
 //monPost_it.deplacerPostit(700,500);
-monPost_it3.AffichPostit();
-
-let monPost_it4 = new Postit('postit4', 300, 200, 200, 200,'green', 'black','Salut test POSTIT 4 !!!' );
-monPost_it4.AffichPostit();
-monPost_it4.deplacerPostit(500,500);
 
 
 
+
+/*let monpostit = new Postit(10, 100, 200, 200, 'red', 'black');
+monpostit.affiche();
+monpostit.deplace(500,500);
+*/
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////
 //Deplacer une div dans une div avec les boutons
 var chrono;
@@ -243,9 +245,7 @@ function droite()
 
 
 //////////////////////////////////////////////////////////////////////////////////
-
-				//Relever la position de la souris
-
+				//relever la position de la souris
 				var monDiv = document.getElementById("postit");
 
 				var xMousePos = 0;
