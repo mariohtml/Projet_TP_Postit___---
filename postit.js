@@ -4,20 +4,18 @@ class Postit {
     y;
     largeur;
 	hauteur;
-	couleurFond;
-	monTitre;
+	couleurFond;	
 	couleurTexte;
-	changerTaille;
 	texte;
+
+	monTitre;
+	changerTaille;
 	
-	//colorText;
 	
-	
-	
-	
-	/*actionsPostit;
+	/*colorText;	
+	actionsPostit;
 	modifierTexte;
-	changerTaille;*/
+	*/
 	
 //function
 //constructor(id, x, y, largeur, hauteur, monTitre, changerTaille, couleurFond, couleurTexte, texte)
@@ -29,23 +27,20 @@ class Postit {
         this.hauteur = hauteur;
         this.couleurFond = couleurFond;
 		this.couleurTexte = couleurTexte;
-		//this.changerTaille = changerTaille;
-		//this.monTitre = monTitre;
 		this.texte = texte;	
-		
-		//this.modifierTexte = modifierTexte;
-		
-		
-		//this.colorText = colorText;
-				
-		//this.deplacerPostit = deplacerPostit;
-				
+
+		//this.changerTaille = changerTaille;
+		//this.monTitre = monTitre;		
+		//this.modifierTexte = modifierTexte;		
+		//this.colorText = colorText;				
+		//this.deplacerPostit = deplacerPostit;				
 		//this.actionsPostit = actionsPostit;
 		//this.id = id;this.actionsPostit = actionsPostit;		
     }
 
-//    AffichPostit() 
-//		{				
+/////////////////////////////////////////////////////////////////////////////////////////////////				
+// suppression de postites avec le petit X dans coin haut
+
 						/*var supprimer = document.getElementsByClassName("supprimer");
 						var i;
 						for (i = 0; i < supprimer.length; i++) {
@@ -57,8 +52,8 @@ class Postit {
 						}
 						 
 			
-//////////////////////////////////////////////////////////////////////////////////////////////	
-			
+
+//--------------------------------------------------------------------------------------------			
 					  var suppresion = document.getElementsByTagName("div");
 					  var i;
 					  
@@ -70,7 +65,7 @@ class Postit {
 					  span.appendChild(txt);
 					  suppresion[i].appendChild(span);}
 					  */
-					  
+//////////////////////////////////////////////////////////////////////////////////////////////						  
 					  
 		//let monElem = document.getElementById(this.id)
 		//if(monElem === null)
@@ -101,15 +96,6 @@ AffichPostit()
 		//monElem.innerHTML = ' ';
 					
     }
-	
-	/*Titre()
-	{
-	 let monElem = document.createElement('h3');
-	 monElem.style.color = this.couleurTexte;
-	 monElem.style.fontsize = this.changerTaille + 'px';
-	 monElem.innerHTML = this.monTitre;
-	 monElem.appendChild(monElem);
-	}*/
 		deplacerPostit(newx, newy)
 		{
 		this.x = newx
@@ -128,7 +114,7 @@ AffichPostit()
 }
 		
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //#########################################################################
 																		//#
 						/*let elem = document.getElementById('postit');   //#
@@ -160,17 +146,11 @@ AffichPostit()
 																		//#																		
 //#########################################################################
 ///////////////////////////////////////////////////////////////////////////
-//Deplasable drop and drag
 
-//---------------------------------------------------------------------
-			
 
 
 ///////////////////////////////////////////////////////////////////////////
-
-
-
-
+//---------------------------------------------------------------------
 
 //let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'Exo', 10, 'red', 'black', 'Salut test POSTIT 1 !!!');
 let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
@@ -190,12 +170,6 @@ let monPost_it4 = new Postit('postit4', 890, 20, 200, 200,'white', 'black','Salu
 monPost_it4.AffichPostit();
 //monPost_it4.deplacerPostit(500,600);
 //monPost_it4.AffichPostit();
-
-
-
-
-
-
 
 
 
@@ -221,6 +195,9 @@ monPost_it4.AffichPostit();
 					document.getElementById("grid-snap").style.left = (parseInt(document.getElementById("grid-snap").offsetLeft,10) + 10) + "px";
 					chrono = setTimeout("droite()",1000);
 			}*/
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
+//--------------------------------------------------------------------------------------------------------------------------------------------------------			
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // DRAG AND DROP avec la souris d'une div dans une div
 			var get = function(el) {
 				if (typeof el === 'string') {
