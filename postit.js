@@ -10,11 +10,11 @@ class Postit {
 
 	monTitre;
 	changerTaille;
-	
+	modifierTexte;
 	
 	/*colorText;	
 	actionsPostit;
-	modifierTexte;
+	
 	*/
 	
 //function
@@ -69,15 +69,32 @@ class Postit {
 					  
 		//let monElem = document.getElementById(this.id)
 		//if(monElem === null)
-		//{
+		//{AffichPostit
 		//	monElem = document.createElement('div');
 		//	monElem.id = this.id;
 		//}	
 		
-AffichPostit() 
-{
-        let monElem = document.createElement('div');
-		monElem.id = this.id;
+		AffichPostit(){
+			/*let monElem = document.getElementById(this.id)
+			if(monElem===null){
+				monElem = document.createElement('div')
+				monElem.id = this.id
+				monElem.addEventListener('click',()=>{
+					deplasPostit=!deplasPostit
+				})
+			}*/
+			let monElem = document.getElementById(this.id)
+			if(monElem===null){
+				monElem = document.createElement('div')
+				monElem.id = this.id
+				/*monElem.addEventListener('click',(e)=>{
+					deplaserPostit=!deplaserPostit
+				})*/
+			}
+
+		monElem.classList.add(this.couleurFond);
+		//pour arreter click "e.stopPropagation" ou event.stopPropagation
+		monElem.addEventListener('dblclick',(e)=>{deplacerPostit=!deplacerPostit});  
         monElem.style.width = this.largeur + 'px';
         monElem.style.height = this.hauteur + 'px';
         monElem.style.position = 'fixed';
@@ -98,10 +115,13 @@ AffichPostit()
     }
 		deplacerPostit(newx, newy)
 		{
-		this.x = newx
-		this.y = newy
+		this.x = newx;
+		this.y = newy;
 		}
 		
+		modifierTexte(newText){
+			this.texte = newText;		   
+		}
 
 		/*monTitle(){
 		let monElem = document.createElement('h3');
@@ -112,7 +132,82 @@ AffichPostit()
 		}*/
 
 }
-		
+
+
+
+/*let deplasPostit = false
+let monPostit
+document.querySelector('.jaune').addEventListener('click',createPostJaune)
+document.querySelector('.pink').addEventListener('click',createPostRose)
+document.querySelector('.skyblue').addEventListener('click',createPostBlue)
+document.querySelector('.orange').addEventListener('click',createPostOrange)
+
+document.body.addEventListener('mousemove',(e)=>{
+    let x = e.clientX
+    let y = e.clientY
+    if(deplasPostit){
+        monPostit.deplacerPostit(x-50,y-50)
+        monPostit.AffichPostit()
+    }
+})*/
+//-----------------------------------------------------------------------------------------------
+//Creation de postites a l'aide de function
+
+function createPostRed(){
+    monPostit0 = new Postit('postit1', 330, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
+    monPostit0.AffichPostit();
+    
+
+    
+}
+
+function createPostYellow(){
+    monPostit1 = new Postit('postit2', 560, 20, 200, 200, 'yellow', 'black', 'Salut test POSTIT 2 !!!' );
+    monPostit1.AffichPostit();
+    
+
+    
+}
+
+function createPostGreen(){
+    monPostit2 = new Postit('postit3', 790, 20, 200, 200, 'green', 'black','Salut test POSTIT 3 !!!' );
+	monPostit2.AffichPostit();
+	//monPostit.deplacerPostit(560,250);
+	//monPostit.AffichPostit();
+    
+
+    
+}
+
+function createPostOrange(){
+    monPostit3 = new Postit('postit4', 1020, 20, 200, 200, 'orange', 'black','Salut test POSTIT 4 !!!' );
+    monPostit3.AffichPostit();
+    
+
+    
+}
+let monPostit;
+document.querySelector('.red').addEventListener('click', createPostRed);
+document.querySelector('.yellow').addEventListener('click', createPostYellow);
+document.querySelector('.green').addEventListener('click', createPostGreen);
+document.querySelector('.orange').addEventListener('click', createPostOrange);
+/*document.querySelector('.skyblue').addEventListener('click',createPostBlue);*/
+
+//-------------------------------------------------------------------------------------------
+//DEplacer postits
+
+let deplacerPostit = false;
+document.body.addEventListener('mousemove',(e)=>{
+    let x = e.clientX;
+    let y = e.clientY;
+    if(deplacerPostit){
+        monPostit.deplacerPostit(x-100,y-100);
+		monPostit.AffichPostit();
+		e.stopPropagation();
+    }
+})
+
+//-----------------------------------------------------------------------------------------------		
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //#########################################################################
@@ -152,24 +247,24 @@ AffichPostit()
 ///////////////////////////////////////////////////////////////////////////
 //---------------------------------------------------------------------
 
-//let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'Exo', 10, 'red', 'black', 'Salut test POSTIT 1 !!!');
-let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
+/*//let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'Exo', 10, 'red', 'black', 'Salut test POSTIT 1 !!!');
+let monPost_it = new Postit('postit1', 330, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
 
 monPost_it.AffichPostit();
-monPost_it.deplacerPostit(450,250);
+monPost_it.deplacerPostit(560,250);
 monPost_it.AffichPostit();
 
-let monPost_it2 = new Postit('postit2', 450, 20, 200, 200, 'yellow', 'black', 'Salut test POSTIT 2 !!!' );
+let monPost_it2 = new Postit('postit2', 560, 20, 200, 200, 'yellow', 'black', 'Salut test POSTIT 2 !!!' );
 monPost_it2.AffichPostit();
 
-let monPost_it3 = new Postit('postit3', 670, 20, 200, 200,'green', 'black','Salut test POSTIT 3 !!!' );
+let monPost_it3 = new Postit('postit3', 790, 20, 200, 200,'green', 'black','Salut test POSTIT 3 !!!' );
 monPost_it3.AffichPostit();
 //monPost_it.deplacerPostit(700,500);
 
-let monPost_it4 = new Postit('postit4', 890, 20, 200, 200,'white', 'black','Salut test POSTIT 4 !!!' );
+let monPost_it4 = new Postit('postit4', 1020, 20, 200, 200,'white', 'black','Salut test POSTIT 4 !!!' );
 monPost_it4.AffichPostit();
 //monPost_it4.deplacerPostit(500,600);
-//monPost_it4.AffichPostit();
+//monPost_it4.AffichPostit();*/
 
 
 

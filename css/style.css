@@ -5,8 +5,9 @@
 }
 
 .menu{
+	display:flex;	
     width: 20%;
-	height: 100vh;
+	height: 110vh;
     background-image: url("../img/s.jpg");
     background-size: cover;
     border-right: 7px solid grey;
@@ -15,46 +16,59 @@
     align-items: center;
     justify-content: space-evenly;*/
 }
-#postit{
+.menu1
+{
+  
+	display:flex;
+	flex-direction:column;
+	justify-content: space-around;
+	width:220px;
+	height:925px;
+	margin-top: 60px;
+	/*border:4px solid Skyblue;*/
+	border-radius:25px;
+ }
+#postit
+{
 	/*overflow : scroll;*/
 	
 	display: flex;
 	width: 100%;
-	height: 100vh;
+	height: 110vh;
 	background-image: url("../img/b.jpg");
-    background-size: cover;
-	
-	
-    
-	
+    background-size: cover;	
 }
 
-#postit1{
-    height: 300px;
-    width: 300px;
-    border: 1px solid white;
-	
-}
-
-#postit2{
+/*
+#postit1
+{
     height: 300px;
     width: 300px;
     border: 1px solid white;
 }
 
-#postit3{
+#postit2
+{
     height: 300px;
     width: 300px;
     border: 1px solid white;
 }
 
-#grid-snap {
+#postit3
+{
+    height: 300px;
+    width: 300px;
+    border: 1px solid white;
+}
+*/
+
+#grid-snap
+{
 	display:flex;
 	/*width: 200px;
 	position: absolute;
 	overflow:auto;
 	height:200px;*/
-
 	/*width: 10%;
 	height: 10%;*/
 	background-color: #29e;
@@ -84,21 +98,57 @@
 }
 .deplacer 
 {
-
-	/*overflow: hidden;*/
-	
+	/*overflow: hidden;*/	
 	height: 400px;
-  }
+}
   
-  .draggable 
-  {
+.draggable 
+{
 	/*resize: both;*/
 	overflow: auto;
-	width:70px;
-	height:70px;
+	width:80px;
+	height:80px;
 	/*background-color:#666;
 	color:white;*/
+	/*margin-bottom: 30px;*/
 	padding:10px 12px;
 	cursor:move;
 	position:relative; /* important (all position that's not `static`) */
-  }
+}
+
+  
+.red
+{
+	height:200px;
+	width:200px;
+	background:#ff0202;
+	border:3px solid yellow;
+	border-radius:25px;
+ }
+  
+.yellow
+{
+	height:200px;
+	width:200px;
+	background:rgb(255, 251, 0) ;
+	border:3px solid #4ab031 ;
+	border-radius:25px;
+}
+  
+.green
+{
+	height:200px;
+	width:200px;
+	background:#0afa02 ;
+	border:3px solid #fc0404  ;
+	border-radius:25px;
+}
+  
+.orange
+{
+	height:200px;
+	width:200px;
+	background:rgb(255, 136, 0) ;
+	border:3px solid grey ;
+	border-radius:25px;
+}
