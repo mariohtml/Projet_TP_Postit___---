@@ -118,11 +118,27 @@ class Postit {
 		this.x = newx;
 		this.y = newy;
 		}
-		
+//--------------------------------		
 		modifierTexte(newText){
 			this.texte = newText;		   
 		}
+		function modifierPostIt(id){
+			safeharbor();
+			modPost = document.getElementById(id);
+			modif = prompt("Modifications : ");
+			if(modif != null){
+				tab.forEach(postitActuel => {
+					if(postitActuel.identifier == id){
+						postitActuel.contenu = modif;
+					}
+				});
+			}
+			afficherPostIt();
+			store();
+		}
 
+
+//---------------------------------
 		/*monTitle(){
 		let monElem = document.createElement('h3');
 					monElem.style.color = this.couleurTexte;
