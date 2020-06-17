@@ -119,7 +119,7 @@ class Postit {
 		this.y = newy;
 		}
 //--------------------------------		
-		modifierTexte(newText){
+/*		modifierTexte(newText){
 			this.texte = newText;		   
 		}
 		function modifierPostIt(id){
@@ -137,7 +137,7 @@ class Postit {
 			store();
 		}
 
-
+*/
 //---------------------------------
 		/*monTitle(){
 		let monElem = document.createElement('h3');
