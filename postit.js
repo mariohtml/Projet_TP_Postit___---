@@ -8,16 +8,16 @@ class Postit {
 	couleurTexte;
 	texte;
 
-	monTitre;
-	changerTaille;
-	modifierTexte;
+
+	
 	
 	/*colorText;	
 	actionsPostit;
-	
+		monTitre;
+	changerTaille;
 	*/
 	
-//function
+//functions
 //constructor(id, x, y, largeur, hauteur, monTitre, changerTaille, couleurFond, couleurTexte, texte)
     constructor(id, x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
         this.id = id;
@@ -38,7 +38,7 @@ class Postit {
 		//this.id = id;this.actionsPostit = actionsPostit;		
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////				
+///////////////////////////////////////////////////////////////////////////////////////				
 // suppression de postites avec le petit X dans coin haut
 
 						/*var supprimer = document.getElementsByClassName("supprimer");
@@ -53,7 +53,7 @@ class Postit {
 						 
 			
 
-//--------------------------------------------------------------------------------------------			
+//------------------------------------------------------------------------------------			
 					  var suppresion = document.getElementsByTagName("div");
 					  var i;
 					  
@@ -65,36 +65,28 @@ class Postit {
 					  span.appendChild(txt);
 					  suppresion[i].appendChild(span);}
 					  */
-//////////////////////////////////////////////////////////////////////////////////////////////						  
-					  
-		//let monElem = document.getElementById(this.id)
-		//if(monElem === null)
-		//{AffichPostit
-		//	monElem = document.createElement('div');
-		//	monElem.id = this.id;
-		//}	
+//////////////////////////////////////////////////////////////////////////////////////						  
+
 		
 		AffichPostit(){
-			/*let monElem = document.getElementById(this.id)
-			if(monElem===null){
-				monElem = document.createElement('div')
-				monElem.id = this.id
-				monElem.addEventListener('click',()=>{
-					deplasPostit=!deplasPostit
-				})
-			}*/
+
 			let monElem = document.getElementById(this.id)
 			if(monElem===null){
 				monElem = document.createElement('div')
 				monElem.id = this.id
-				/*monElem.addEventListener('click',(e)=>{
-					deplaserPostit=!deplaserPostit
-				})*/
+				monElem.addEventListener('click',(e)=>{
+					deplacerPostit=!deplacerPostit;
+					e.stopPropagation(e);
+				})
+				monElem.addEventListener('dblclick',(e)=>{
+					modifierTexte=!modifierTexte;
+					e.stopPropagation(e);
+				})
 			}
 
 		monElem.classList.add(this.couleurFond);
-		//pour arreter click "e.stopPropagation" ou event.stopPropagation
-		monElem.addEventListener('dblclick',(e)=>{deplacerPostit=!deplacerPostit});  
+		//pour arreter click "e.stopPropagation(e)" ou event.stopPropagation
+		//monElem.addEventListener('click',(e)=>{deplacerPostit=!deplacerPostit});  
         monElem.style.width = this.largeur + 'px';
         monElem.style.height = this.hauteur + 'px';
         monElem.style.position = 'fixed';
@@ -111,62 +103,39 @@ class Postit {
 		//monElem.innerHTML = this.monTitre;
         document.getElementById('postit').appendChild(monElem);
 		//monElem.innerHTML = ' ';
-					
-    }
-		deplacerPostit(newx, newy)
+	}
+	
+
+		depPostit(newx, newy)
 		{
 		this.x = newx;
 		this.y = newy;
 		}
-//--------------------------------		
-/*		modifierTexte(newText){
-			this.texte = newText;		   
-		}
-		function modifierPostIt(id){
-			safeharbor();
-			modPost = document.getElementById(id);
-			modif = prompt("Modifications : ");
-			if(modif != null){
-				tab.forEach(postitActuel => {
-					if(postitActuel.identifier == id){
-						postitActuel.contenu = modif;
-					}
-				});
-			}
-			afficherPostIt();
-			store();
+
+
+		modifTexte(newText){
+			this.texte = newText
 		}
 
-*/
-//---------------------------------
-		/*monTitle(){
-		let monElem = document.createElement('h3');
-					monElem.style.color = this.couleurTexte;
-					monElem.style.fontsize = this.changerTaille + 'px';
-					monElem.innerHTML = this.monTitre;
-					monElem.appendChild(monElem);
-		}*/
+	}
+//-----------------------------------------------------------------------------------
+// Tableau postites
+/*
+let postitTest = new postIt(tabPostIt.length+1,fdjfhjd,fhdjfhsdjk,fhdjhfjk,fhjdfks)
+tabPostIt.push(postitTest)
+
+
+
+
+//-----------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------		
+
+//-----------------------------------------------------------------------------------
 
 }
-
-
-
-/*let deplasPostit = false
-let monPostit
-document.querySelector('.jaune').addEventListener('click',createPostJaune)
-document.querySelector('.pink').addEventListener('click',createPostRose)
-document.querySelector('.skyblue').addEventListener('click',createPostBlue)
-document.querySelector('.orange').addEventListener('click',createPostOrange)
-
-document.body.addEventListener('mousemove',(e)=>{
-    let x = e.clientX
-    let y = e.clientY
-    if(deplasPostit){
-        monPostit.deplacerPostit(x-50,y-50)
-        monPostit.AffichPostit()
-    }
-})*/
-//-----------------------------------------------------------------------------------------------
+*/
+//------------------------------------------------------------------------------------
 //Creation de postites a l'aide de function
 
 function createPostRed(){
@@ -209,7 +178,7 @@ document.querySelector('.green').addEventListener('click', createPostGreen);
 document.querySelector('.orange').addEventListener('click', createPostOrange);
 /*document.querySelector('.skyblue').addEventListener('click',createPostBlue);*/
 
-//-------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
 //DEplacer postits
 
 let deplacerPostit = false;
@@ -217,14 +186,22 @@ document.body.addEventListener('mousemove',(e)=>{
     let x = e.clientX;
     let y = e.clientY;
     if(deplacerPostit){
-        monPostit.deplacerPostit(x-100,y-100);
-		monPostit.AffichPostit();
-		e.stopPropagation();
+        monPostit0.depPostit(x-100,y-100);
+		monPostit0.AffichPostit();
+		e.stopPropagation(e);
     }
 })
 
-//-----------------------------------------------------------------------------------------------		
 
+let modifierTexte = false;
+document.body.addEventListener('keydown', (e) => {
+    monPostit0.modifTexte(monPostit0.texte+e.key);
+    monPostit0.AffichPostit();
+    e.stopPropagation(e);
+    console.log(e);
+})
+
+//-----------------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //#########################################################################
 																		//#
@@ -261,7 +238,7 @@ document.body.addEventListener('mousemove',(e)=>{
 
 
 ///////////////////////////////////////////////////////////////////////////
-//---------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
 
 /*//let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'Exo', 10, 'red', 'black', 'Salut test POSTIT 1 !!!');
 let monPost_it = new Postit('postit1', 330, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
@@ -286,7 +263,7 @@ monPost_it4.AffichPostit();
 
 
 
-//------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////
 			//Deplacer une div dans une div avec les boutons
 		/*	var chrono;
@@ -306,9 +283,9 @@ monPost_it4.AffichPostit();
 					document.getElementById("grid-snap").style.left = (parseInt(document.getElementById("grid-snap").offsetLeft,10) + 10) + "px";
 					chrono = setTimeout("droite()",1000);
 			}*/
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
-//--------------------------------------------------------------------------------------------------------------------------------------------------------			
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//-----------------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////////////
 // DRAG AND DROP avec la souris d'une div dans une div
 			var get = function(el) {
 				if (typeof el === 'string') {
