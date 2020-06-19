@@ -74,13 +74,16 @@ class Postit {
 			if(monElem===null){
 				monElem = document.createElement('div')
 				monElem.id = this.id
-				monElem.addEventListener('click',(e)=>{
+				monElem.addEventListener('click',()=>{
 					deplacerPostit=!deplacerPostit;
-					e.stopPropagation(e);
+					//e.stopPropagation(e);
+					numPostit = this.id;
 				})
-				monElem.addEventListener('dblclick',(e)=>{
+
+				monElem.addEventListener('dblclick',()=>{
 					modifierTexte=!modifierTexte;
-					e.stopPropagation(e);
+					//e.stopPropagation(e);
+					numPostit = this.id;
 				})
 			}
 
@@ -120,43 +123,80 @@ class Postit {
 	}
 //-----------------------------------------------------------------------------------
 // Tableau postites
-/*
-let postitTest = new postIt(tabPostIt.length+1,fdjfhjd,fhdjfhsdjk,fhdjhfjk,fhjdfks)
-tabPostIt.push(postitTest)
+
+
+let tabPostit = [];
+
+		let numPostit
 
 
 
 
 //-----------------------------------------------------------------------------------
+//Cookies
+setInterval(()=>{
+let savPost = JSON.stingify(tabPostit);
+createCookie("savPost",savPost,30)
+},500)
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+		
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
 
+
+let chaine = readCookie("savPost")
+let tempsTab = JSON.parse(chane);
+for (let i in tempsTab){
+	monPostit0 = new Postit(tempsTab[i].id, tempsTab[i].x, tempsTab[i].y, tempsTab[i].largeur, tempsTab[i].hauteur, tempsTab[i].couleurFond, tempsTab[i].couleurTexte, tempsTab[i].texte);
+    monPostit0.AffichPostit();
+    tabPostit.push (monPostit0)
+}
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+console.log(savPost)
 //-----------------------------------------------------------------------------------		
 
 //-----------------------------------------------------------------------------------
 
-}
-*/
+
 //------------------------------------------------------------------------------------
 //Creation de postites a l'aide de function
 
 function createPostRed(){
-    monPostit0 = new Postit('postit1', 330, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
+    monPostit0 = new Postit(tabPostit.length+1, 330, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
     monPostit0.AffichPostit();
-    
+    tabPostit.push (monPostit0)
 
     
 }
 
 function createPostYellow(){
-    monPostit1 = new Postit('postit2', 560, 20, 200, 200, 'yellow', 'black', 'Salut test POSTIT 2 !!!' );
+    monPostit1 = new Postit(tabPostit.length+1, 560, 20, 200, 200, 'yellow', 'black', 'Salut test POSTIT 2 !!!' );
     monPostit1.AffichPostit();
-    
+    tabPostit.push (monPostit1)
 
     
 }
 
 function createPostGreen(){
-    monPostit2 = new Postit('postit3', 790, 20, 200, 200, 'green', 'black','Salut test POSTIT 3 !!!' );
+    monPostit2 = new Postit(tabPostit.length+1, 790, 20, 200, 200, 'green', 'black','Salut test POSTIT 3 !!!' );
 	monPostit2.AffichPostit();
+	tabPostit.push (monPostit2)
 	//monPostit.deplacerPostit(560,250);
 	//monPostit.AffichPostit();
     
@@ -165,9 +205,9 @@ function createPostGreen(){
 }
 
 function createPostOrange(){
-    monPostit3 = new Postit('postit4', 1020, 20, 200, 200, 'orange', 'black','Salut test POSTIT 4 !!!' );
+    monPostit3 = new Postit(tabPostit.length+1, 1020, 20, 200, 200, 'orange', 'black','Salut test POSTIT 4 !!!' );
     monPostit3.AffichPostit();
-    
+    tabPostit.push (monPostit3)
 
     
 }
@@ -186,8 +226,8 @@ document.body.addEventListener('mousemove',(e)=>{
     let x = e.clientX;
     let y = e.clientY;
     if(deplacerPostit){
-        monPostit0.depPostit(x-100,y-100);
-		monPostit0.AffichPostit();
+        tabPostit[numPostit -1].depPostit(x-100,y-100);
+		tabPostit[numPostit -1].AffichPostit();
 		e.stopPropagation(e);
     }
 })
@@ -195,8 +235,8 @@ document.body.addEventListener('mousemove',(e)=>{
 
 let modifierTexte = false;
 document.body.addEventListener('keydown', (e) => {
-    monPostit0.modifTexte(monPostit0.texte+e.key);
-    monPostit0.AffichPostit();
+    tabPostit[numPostit -1].modifTexte(tabPostit[numPostit -1].texte+e.key);
+    tabPostit[numPostit -1].AffichPostit();
     e.stopPropagation(e);
     console.log(e);
 })
