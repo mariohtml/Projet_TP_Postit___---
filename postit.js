@@ -126,18 +126,18 @@ class Postit {
 
 
 let tabPostit = [];
-
-		let numPostit
+let numPostit;
 
 
 
 
 //-----------------------------------------------------------------------------------
 //Cookies
-setInterval(()=>{
-let savPost = JSON.stingify(tabPostit);
-createCookie("savPost",savPost,30)
-},500)
+ setInterval (() => {
+let savPost = JSON.stringify(tabPostit)
+document.cookie = createCookie("savPost",savPost,30)
+},500);
+
 function createCookie(name,value,days) {
 	if (days) {
 		var date = new Date();
@@ -151,7 +151,7 @@ function createCookie(name,value,days) {
 
 
 let chaine = readCookie("savPost")
-let tempsTab = JSON.parse(chane);
+let tempsTab = JSON.parse(chaine);
 for (let i in tempsTab){
 	monPostit0 = new Postit(tempsTab[i].id, tempsTab[i].x, tempsTab[i].y, tempsTab[i].largeur, tempsTab[i].hauteur, tempsTab[i].couleurFond, tempsTab[i].couleurTexte, tempsTab[i].texte);
     monPostit0.AffichPostit();
@@ -168,8 +168,17 @@ function readCookie(name) {
 	return null;
 }
 
-console.log(savPost)
+
+var c = document.cookie; 
+document.getElementById('cook').innerHTML = c;
+
+
+//console.log(savPost)
 //-----------------------------------------------------------------------------------		
+
+
+
+
 
 //-----------------------------------------------------------------------------------
 
