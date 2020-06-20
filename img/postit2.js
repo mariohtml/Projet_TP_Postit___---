@@ -17,7 +17,7 @@ class Postit {
 	changerTaille;
 	*/
 	
-//functions
+//functions du constructeu
 //constructor(id, x, y, largeur, hauteur, monTitre, changerTaille, couleurFond, couleurTexte, texte)
     constructor(id, x, y, largeur, hauteur, couleurFond, couleurTexte, texte) {
         this.id = id;
@@ -52,6 +52,7 @@ class Postit {
 						}
 						 
 			
+
 //------------------------------------------------------------------------------------			
 					  var suppresion = document.getElementsByTagName("div");
 					  var i;
@@ -97,7 +98,7 @@ class Postit {
         monElem.style.left = this.x + 'px';
         monElem.style.top = this.y + 'px';
         monElem.style.backgroundColor = this.couleurFond;
-		monElem.style.resize = 'both';
+		//monElem.style.resize = 'both';
 		monElem.style.overflow = 'auto';
 		//monElem.style.cursor = 'zoom-in';
 		//monElem.style.draggable = "true";
@@ -112,12 +113,18 @@ class Postit {
 		{
 		this.x = newx;
 		this.y = newy;
-		}
+		};
 
 
 		modifTexte(newText){
 			this.texte = newText
-		}
+		};
+
+	    /* Création de la fonction de redimension */
+	/*	taillePostit(newLargeur, newHauteur){
+			this.largeur=newLargeur
+			this.hauteur=newHauteur
+			};*/
 
 	}
 //-----------------------------------------------------------------------------------
@@ -238,16 +245,26 @@ document.body.addEventListener('mousemove',(e)=>{
 		tabPostit[numPostit -1].AffichPostit();
 		e.stopPropagation(e);
     }
-})
+});
 
-
+//Modifier le text du postit
 let modifierTexte = false;
 document.body.addEventListener('keydown', (e) => {
     tabPostit[numPostit -1].modifTexte(tabPostit[numPostit -1].texte+e.key);
     tabPostit[numPostit -1].AffichPostit();
     e.stopPropagation(e);
     console.log(e);
-})
+});
+
+//Modifier la taille du postit
+/*let modifTaille = false;
+document.body.addEventListener('mousemove',(e)=>{
+	tabPostit[numPostit -1].taillePostit
+	tabPostit[numPostit -1].AffichPostit();
+	e.stopPropagation(e);
+});
+*/
+	
 
 //-----------------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -290,14 +307,18 @@ document.body.addEventListener('keydown', (e) => {
 
 /*//let monPost_it = new Postit('postit1', 230, 20, 200, 200, 'Exo', 10, 'red', 'black', 'Salut test POSTIT 1 !!!');
 let monPost_it = new Postit('postit1', 330, 20, 200, 200, 'red', 'black', 'Salut test POSTIT 1 !!!');
+
 monPost_it.AffichPostit();
 monPost_it.deplacerPostit(560,250);
 monPost_it.AffichPostit();
+
 let monPost_it2 = new Postit('postit2', 560, 20, 200, 200, 'yellow', 'black', 'Salut test POSTIT 2 !!!' );
 monPost_it2.AffichPostit();
+
 let monPost_it3 = new Postit('postit3', 790, 20, 200, 200,'green', 'black','Salut test POSTIT 3 !!!' );
 monPost_it3.AffichPostit();
 //monPost_it.deplacerPostit(700,500);
+
 let monPost_it4 = new Postit('postit4', 1020, 20, 200, 200,'white', 'black','Salut test POSTIT 4 !!!' );
 monPost_it4.AffichPostit();
 //monPost_it4.deplacerPostit(500,600);
@@ -467,3 +488,4 @@ monPost_it4.AffichPostit();
 					"/" +monDiv.offsetHeight + 'px';
 				}
 //////////////////////////////////////////////////////////////////////////////////
+ 
